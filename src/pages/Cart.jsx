@@ -5,9 +5,9 @@ const Cart = () => {
   const cartItems = useSelector((state) => state.cart);
   const dispatch = useDispatch();
   console.log("items");
-  const handleRemoveItem = (id) => {
-    console.log("id", id);
-    dispatch(remove(id));
+  const handleRemoveItem = (title) => {
+    console.log("id", title);
+    dispatch(remove(title));
   };
   return (
     <div className="cart">
@@ -21,7 +21,7 @@ const Cart = () => {
             <h2>{item.title}</h2>
             <h2>{item.category}</h2>
             <h2>$ {item.price}</h2>
-            <button onClick={() => handleRemoveItem(index)}>Remove</button>
+            <button onClick={() => handleRemoveItem(item.title)}>Remove</button>
           </div>
         );
       })}
